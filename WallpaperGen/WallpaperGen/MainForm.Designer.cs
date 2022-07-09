@@ -32,12 +32,14 @@
             this.wallpaperPictureBox = new System.Windows.Forms.PictureBox();
             this.nextButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
+            this.downloadButton = new System.Windows.Forms.Button();
+            this.setWallpapers = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.wallpaperPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // getWallpapersButton
             // 
-            this.getWallpapersButton.Location = new System.Drawing.Point(339, 402);
+            this.getWallpapersButton.Location = new System.Drawing.Point(144, 393);
             this.getWallpapersButton.Name = "getWallpapersButton";
             this.getWallpapersButton.Size = new System.Drawing.Size(108, 23);
             this.getWallpapersButton.TabIndex = 0;
@@ -74,11 +76,33 @@
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
+            // downloadButton
+            // 
+            this.downloadButton.Location = new System.Drawing.Point(332, 393);
+            this.downloadButton.Name = "downloadButton";
+            this.downloadButton.Size = new System.Drawing.Size(108, 23);
+            this.downloadButton.TabIndex = 7;
+            this.downloadButton.Text = "Download";
+            this.downloadButton.UseVisualStyleBackColor = true;
+            this.downloadButton.Click += new System.EventHandler(this.downloadButton_Click);
+            // 
+            // setWallpapers
+            // 
+            this.setWallpapers.Location = new System.Drawing.Point(516, 393);
+            this.setWallpapers.Name = "setWallpapers";
+            this.setWallpapers.Size = new System.Drawing.Size(108, 23);
+            this.setWallpapers.TabIndex = 8;
+            this.setWallpapers.Text = "Set Wallpapers";
+            this.setWallpapers.UseVisualStyleBackColor = true;
+            this.setWallpapers.Click += new System.EventHandler(this.setWallpapers_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.setWallpapers);
+            this.Controls.Add(this.downloadButton);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.wallpaperPictureBox);
@@ -96,5 +120,7 @@
         private PictureBox wallpaperPictureBox;
         private Button nextButton;
         private Button backButton;
+        private Button downloadButton;
+        private Button setWallpapers;
     }
 }

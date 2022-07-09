@@ -12,6 +12,8 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Net.Http.Formatting;
 using Newtonsoft.Json.Linq;
+using System.Net;
+using System.IO;
 
 namespace WallpaperGen
 {
@@ -20,8 +22,9 @@ namespace WallpaperGen
         [System.Runtime.InteropServices.DllImport("kernel32.dll")]
         private static extern bool AllocConsole();
 
+        private const int MAX_WP = 10;
         private const string URL = "https://wallhaven.cc/api/v1/search";
-        private string urlParameters = "?q=nature";
+        private string urlParameters = "?q=nature&categories=100&atleast=1920x1080&sorting=views";
         private List<Wallpaper> wallpaperList = new List<Wallpaper>();
         private int listIndex = 0;
 
@@ -47,29 +50,12 @@ namespace WallpaperGen
                 // Parse the response body.
                 string resultString = response.Content.ReadAsStringAsync().Result;
                 JObject json = JObject.Parse(resultString);
-                //Console.WriteLine(json["data"].First().ToString());
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                foreach (JObject wp in json["data"])
+                for (int i = 0; i < MAX_WP; i++)
                 {
+                    JObject wp = (JObject)json["data"][i];
                     wallpaperList.Add(createWallpaper(wp));
                 }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
-
-                /*
-                foreach (Wallpaper wp in wallpaperList)
-                {
-                    Console.WriteLine("~~~~~~~");
-                    Console.WriteLine(wp.id);
-                    Console.WriteLine(wp.url);
-                    foreach (string thumb in wp.thumbs)
-                    {
-                        Console.WriteLine(thumb);
-                    }
-                    Console.WriteLine(wp.resolution);
-                    
-                }
-                */
 
                 loadWallpapers();
             }
@@ -147,7 +133,50 @@ namespace WallpaperGen
 
             Console.WriteLine(listIndex);
         }
+
+        private void downloadButton_Click(object sender, EventArgs e)
+        {
+            using (WebClient client = new WebClient())
+            {
+                for (int i = 0; i < wallpaperList.Count; i++)
+                {
+                    string filename =  "wallpaper" + (i + 1).ToString() + ".jpg";
+                    client.DownloadFile(new Uri(wallpaperList[i].url), @filename);
+                }
+            }
+        }
+
+        private void setWallpapers_Click(object sender, EventArgs e)
+        {
+            AllocConsole();
+            Wallpaper wp = new Wallpaper();
+            string root = Path.GetFullPath(".");
+            string name = "wallpaper2.jpg";
+            string path = Path.Combine(root, name);
+            Console.WriteLine(path);
+            if (File.Exists(path))
+            {
+                wp.setWallpaper(@path);
+            }
+            
+        }
     }
 
     
 }
+
+
+/*
+foreach (Wallpaper wp in wallpaperList)
+{
+    Console.WriteLine("~~~~~~~");
+    Console.WriteLine(wp.id);
+    Console.WriteLine(wp.url);
+    foreach (string thumb in wp.thumbs)
+    {
+        Console.WriteLine(thumb);
+    }
+    Console.WriteLine(wp.resolution);
+
+}
+*/
