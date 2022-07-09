@@ -23,6 +23,7 @@ namespace WallpaperGen
         private const string URL = "https://wallhaven.cc/api/v1/search";
         private string urlParameters = "?q=nature";
         private List<Wallpaper> wallpaperList = new List<Wallpaper>();
+        private int listIndex = 0;
 
 
         public MainForm()
@@ -48,11 +49,14 @@ namespace WallpaperGen
                 JObject json = JObject.Parse(resultString);
                 //Console.WriteLine(json["data"].First().ToString());
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 foreach (JObject wp in json["data"])
                 {
                     wallpaperList.Add(createWallpaper(wp));
                 }
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
+                /*
                 foreach (Wallpaper wp in wallpaperList)
                 {
                     Console.WriteLine("~~~~~~~");
@@ -65,6 +69,9 @@ namespace WallpaperGen
                     Console.WriteLine(wp.resolution);
                     
                 }
+                */
+
+                loadWallpapers();
             }
             else
             {
@@ -93,6 +100,53 @@ namespace WallpaperGen
 
         }
 
+        private void loadWallpapers()
+        {
+            if (wallpaperList.Count > 0)
+            {
+                wallpaperPictureBox.Load(wallpaperList.First().thumbs[0]);
+                Console.WriteLine(listIndex);
+            }
+
+        }
+
+        private void nextButton_Click(object sender, EventArgs e)
+        {
+            if (listIndex < wallpaperList.Count - 1)
+            {
+                listIndex++;
+                wallpaperPictureBox.Load(wallpaperList[listIndex].thumbs[0]);
+            }
+            else
+            {
+                if (wallpaperList.Count > 0)
+                {
+                    wallpaperPictureBox.Load(wallpaperList.First().thumbs[0]);
+                    listIndex = 0;
+                }
+            }
+
+            Console.WriteLine(listIndex);
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            if (listIndex > 0)
+            {
+                listIndex--;
+                wallpaperPictureBox.Load(wallpaperList[listIndex].thumbs[0]);
+            }
+            else
+            {
+                if (wallpaperList.Count > 0)
+                {
+                    wallpaperPictureBox.Load(wallpaperList.Last().thumbs[0]);
+                    listIndex = wallpaperList.Count - 1;
+                }
+            }
+
+            Console.WriteLine(listIndex);
+        }
     }
 
     
