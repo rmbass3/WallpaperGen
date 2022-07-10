@@ -19,3 +19,4 @@ C:\Users\rmbas\OneDrive\Desktop\Projects\WallpaperGen\WallpaperGen\WallpaperGen\
 C:\Users\rmbas\OneDrive\Desktop\Projects\WallpaperGen\WallpaperGen\WallpaperGen\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
 C:\Users\rmbas\OneDrive\Desktop\Projects\WallpaperGen\WallpaperGen\WallpaperGen\bin\Debug\net6.0-windows\Newtonsoft.Json.Bson.dll
 C:\Users\rmbas\OneDrive\Desktop\Projects\WallpaperGen\WallpaperGen\WallpaperGen\obj\Debug\net6.0-windows\WallpaperGen.csproj.CopyComplete
+C:\Users\rmbas\OneDrive\Desktop\Projects\WallpaperGen\WallpaperGen\WallpaperGen\obj\Debug\net6.0-windows\WallpaperGen.AutoForm.resources
