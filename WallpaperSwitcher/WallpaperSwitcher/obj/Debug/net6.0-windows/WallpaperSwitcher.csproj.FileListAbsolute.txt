@@ -1,0 +1,15 @@
+C:\Users\rmbas\OneDrive\Desktop\Projects\WallpaperGen\WallpaperSwitcher\WallpaperSwitcher\bin\Debug\net6.0-windows\WallpaperSwitcher.exe
+C:\Users\rmbas\OneDrive\Desktop\Projects\WallpaperGen\WallpaperSwitcher\WallpaperSwitcher\bin\Debug\net6.0-windows\WallpaperSwitcher.deps.json
+C:\Users\rmbas\OneDrive\Desktop\Projects\WallpaperGen\WallpaperSwitcher\WallpaperSwitcher\bin\Debug\net6.0-windows\WallpaperSwitcher.runtimeconfig.json
+C:\Users\rmbas\OneDrive\Desktop\Projects\WallpaperGen\WallpaperSwitcher\WallpaperSwitcher\bin\Debug\net6.0-windows\WallpaperSwitcher.dll
+C:\Users\rmbas\OneDrive\Desktop\Projects\WallpaperGen\WallpaperSwitcher\WallpaperSwitcher\bin\Debug\net6.0-windows\WallpaperSwitcher.pdb
+C:\Users\rmbas\OneDrive\Desktop\Projects\WallpaperGen\WallpaperSwitcher\WallpaperSwitcher\obj\Debug\net6.0-windows\WallpaperSwitcher.csproj.AssemblyReference.cache
+C:\Users\rmbas\OneDrive\Desktop\Projects\WallpaperGen\WallpaperSwitcher\WallpaperSwitcher\obj\Debug\net6.0-windows\WallpaperSwitcher.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rmbas\OneDrive\Desktop\Projects\WallpaperGen\WallpaperSwitcher\WallpaperSwitcher\obj\Debug\net6.0-windows\WallpaperSwitcher.AssemblyInfoInputs.cache
+C:\Users\rmbas\OneDrive\Desktop\Projects\WallpaperGen\WallpaperSwitcher\WallpaperSwitcher\obj\Debug\net6.0-windows\WallpaperSwitcher.AssemblyInfo.cs
+C:\Users\rmbas\OneDrive\Desktop\Projects\WallpaperGen\WallpaperSwitcher\WallpaperSwitcher\obj\Debug\net6.0-windows\WallpaperSwitcher.csproj.CoreCompileInputs.cache
+C:\Users\rmbas\OneDrive\Desktop\Projects\WallpaperGen\WallpaperSwitcher\WallpaperSwitcher\obj\Debug\net6.0-windows\WallpaperSwitcher.dll
+C:\Users\rmbas\OneDrive\Desktop\Projects\WallpaperGen\WallpaperSwitcher\WallpaperSwitcher\obj\Debug\net6.0-windows\refint\WallpaperSwitcher.dll
+C:\Users\rmbas\OneDrive\Desktop\Projects\WallpaperGen\WallpaperSwitcher\WallpaperSwitcher\obj\Debug\net6.0-windows\WallpaperSwitcher.pdb
+C:\Users\rmbas\OneDrive\Desktop\Projects\WallpaperGen\WallpaperSwitcher\WallpaperSwitcher\obj\Debug\net6.0-windows\WallpaperSwitcher.genruntimeconfig.cache
+C:\Users\rmbas\OneDrive\Desktop\Projects\WallpaperGen\WallpaperSwitcher\WallpaperSwitcher\obj\Debug\net6.0-windows\ref\WallpaperSwitcher.dll
