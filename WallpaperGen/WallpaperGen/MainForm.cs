@@ -90,7 +90,7 @@ namespace WallpaperGen
         {
             if (wallpaperList.Count > 0)
             {
-                wallpaperPictureBox.Load(wallpaperList.First().thumbs[0]);
+                wallpaperPictureBox.Load(wallpaperList.First().Thumbs[0]);
                 Console.WriteLine(listIndex);
             }
 
@@ -101,13 +101,13 @@ namespace WallpaperGen
             if (listIndex < wallpaperList.Count - 1)
             {
                 listIndex++;
-                wallpaperPictureBox.Load(wallpaperList[listIndex].thumbs[0]);
+                wallpaperPictureBox.Load(wallpaperList[listIndex].Thumbs[0]);
             }
             else
             {
                 if (wallpaperList.Count > 0)
                 {
-                    wallpaperPictureBox.Load(wallpaperList.First().thumbs[0]);
+                    wallpaperPictureBox.Load(wallpaperList.First().Thumbs[0]);
                     listIndex = 0;
                 }
             }
@@ -120,13 +120,13 @@ namespace WallpaperGen
             if (listIndex > 0)
             {
                 listIndex--;
-                wallpaperPictureBox.Load(wallpaperList[listIndex].thumbs[0]);
+                wallpaperPictureBox.Load(wallpaperList[listIndex].Thumbs[0]);
             }
             else
             {
                 if (wallpaperList.Count > 0)
                 {
-                    wallpaperPictureBox.Load(wallpaperList.Last().thumbs[0]);
+                    wallpaperPictureBox.Load(wallpaperList.Last().Thumbs[0]);
                     listIndex = wallpaperList.Count - 1;
                 }
             }
@@ -141,7 +141,7 @@ namespace WallpaperGen
                 for (int i = 0; i < wallpaperList.Count; i++)
                 {
                     string filename =  "wallpaper" + (i + 1).ToString() + ".jpg";
-                    client.DownloadFile(new Uri(wallpaperList[i].url), @filename);
+                    client.DownloadFile(new Uri(wallpaperList[i].Url), @filename);
                 }
             }
         }

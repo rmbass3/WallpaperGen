@@ -11,10 +11,11 @@ namespace WallpaperGen
 {
     public class Wallpaper
     {
-        public string id { get; set; }
-        public string url { get; set; }
-        public string[] thumbs { get; set; }
-        public string resolution { get; set; }
+        public string Id { get; set; }
+        public string Url { get; set; }
+        public string[] Thumbs { get; set; }
+        public string Resolution { get; set; }
+        public string Path { get; set; }
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern Int32 SystemParametersInfo(UInt32 action, UInt32 uParam, String vParam, UInt32 winIni);
@@ -28,12 +29,17 @@ namespace WallpaperGen
 
         }
 
+        public Wallpaper(string path)
+        {
+            Path = path;
+        }
+
         public Wallpaper(string id, string url, string[] thumbs, string resolution)
         {
-            this.id = id;
-            this.url = url;
-            this.thumbs = thumbs;
-            this.resolution = resolution;
+            Id = id;
+            Url = url;
+            Thumbs = thumbs;
+            Resolution = resolution;
         }
 
         public void setWallpaper(string path)

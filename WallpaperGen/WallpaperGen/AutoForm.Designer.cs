@@ -30,6 +30,7 @@
         {
             this.selectButton = new System.Windows.Forms.Button();
             this.selectLabel = new System.Windows.Forms.Label();
+            this.createButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // selectButton
@@ -51,11 +52,22 @@
             this.selectLabel.TabIndex = 1;
             this.selectLabel.Text = "No folder selected.";
             // 
+            // createButton
+            // 
+            this.createButton.Location = new System.Drawing.Point(651, 386);
+            this.createButton.Name = "createButton";
+            this.createButton.Size = new System.Drawing.Size(104, 23);
+            this.createButton.TabIndex = 2;
+            this.createButton.Text = "Create";
+            this.createButton.UseVisualStyleBackColor = true;
+            this.createButton.Click += new System.EventHandler(this.createButton_Click);
+            // 
             // AutoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.createButton);
             this.Controls.Add(this.selectLabel);
             this.Controls.Add(this.selectButton);
             this.Name = "AutoForm";
@@ -68,5 +80,6 @@
         #endregion
         private Button selectButton;
         private Label selectLabel;
+        private Button createButton;
     }
 }
