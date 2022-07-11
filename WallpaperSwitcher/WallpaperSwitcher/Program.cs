@@ -1,5 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 using Microsoft.Win32;
+using System.Diagnostics;
 
 namespace WallpaperSwitcher
 {
@@ -13,9 +14,17 @@ namespace WallpaperSwitcher
         private static readonly UInt32 SPIF_UPDATEINIFILE = 0x01;
         private static readonly UInt32 SPIF_SENDWININICHANGE = 0x02;
 
-        static void Main()
+        static void Main(string[] args)
         {
-            setWallpaper(@"C:/Users/rmbas/OneDrive/Desktop/wallpaper2.jpg");
+
+            string[] paths;
+
+            if (args.Length > 0)
+            {
+                paths = args[0].Split(' ');
+                setWallpaper(@paths[0]);
+            }
+
         }
 
         public static void setWallpaper(string path)

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32.TaskScheduler;
+using System.IO;
 
 namespace WallpaperGen
 {
@@ -15,7 +16,7 @@ namespace WallpaperGen
     {
         [System.Runtime.InteropServices.DllImport("kernel32.dll")]
         private static extern bool AllocConsole();
-        private List<Wallpaper> wallpaperList = new List<Wallpaper>();
+        private string[] PathArr;
 
         public AutoForm()
         {
@@ -24,28 +25,29 @@ namespace WallpaperGen
 
         private void selectButton_Click(object sender, EventArgs e)
         {
-            //AllocConsole();
             using (var fbd = new FolderBrowserDialog())
             {
                 DialogResult result = fbd.ShowDialog();
 
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                 {
-                    string[] paths = Directory.GetFiles(fbd.SelectedPath);
+                    PathArr = Directory.GetFiles(fbd.SelectedPath);
 
-                    foreach (string path in paths)
-                    {
-                        Wallpaper wp = new Wallpaper(path);
-                        wallpaperList.Add(wp);
-                    }
-
-                    selectLabel.Text = paths.Length.ToString() + " Wallpapers found.";
+                    selectLabel.Text = PathArr.Length.ToString() + " Wallpapers found.";
                 }
             }
         }
 
         private void createButton_Click(object sender, EventArgs e)
         {
+            //AllocConsole();
+
+            string paths = "";
+            foreach (string path in PathArr)
+            {
+                paths = paths + path + " ";
+            }
+
             using (TaskService ts = new TaskService())
             {
                 TaskDefinition td = ts.NewTask();
@@ -53,7 +55,9 @@ namespace WallpaperGen
 
                 td.Triggers.Add(new DailyTrigger { DaysInterval = 1 });
 
-                td.Actions.Add(new ExecAction("C:/Users/rmbas/Desktop/Projects/WallpaperGen/WallpaperSwitcher/WallpaperSwitcher/bin/Debug/net6.0-windows/WallpaperSwitcher.exe", null, null));
+                string exePath = Path.GetFullPath("../../../../../WallpaperSwitcher/WallpaperSwitcher/bin/Debug/net6.0-windows/WallpaperSwitcher.exe");
+
+                td.Actions.Add(new ExecAction(exePath, paths, null));
 
                 ts.RootFolder.RegisterTaskDefinition(@"WallpaperSwitcher", td);
             }
