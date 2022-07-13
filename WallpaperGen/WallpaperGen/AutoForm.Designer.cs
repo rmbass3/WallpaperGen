@@ -31,6 +31,7 @@
             this.selectButton = new System.Windows.Forms.Button();
             this.selectLabel = new System.Windows.Forms.Label();
             this.createButton = new System.Windows.Forms.Button();
+            this.removeButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // selectButton
@@ -62,11 +63,22 @@
             this.createButton.UseVisualStyleBackColor = true;
             this.createButton.Click += new System.EventHandler(this.createButton_Click);
             // 
+            // removeButton
+            // 
+            this.removeButton.Location = new System.Drawing.Point(41, 386);
+            this.removeButton.Name = "removeButton";
+            this.removeButton.Size = new System.Drawing.Size(104, 23);
+            this.removeButton.TabIndex = 3;
+            this.removeButton.Text = "Remove";
+            this.removeButton.UseVisualStyleBackColor = true;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
+            // 
             // AutoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.removeButton);
             this.Controls.Add(this.createButton);
             this.Controls.Add(this.selectLabel);
             this.Controls.Add(this.selectButton);
@@ -81,5 +93,6 @@
         private Button selectButton;
         private Label selectLabel;
         private Button createButton;
+        private Button removeButton;
     }
 }

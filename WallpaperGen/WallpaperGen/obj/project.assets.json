@@ -4987,11 +4987,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rmbas\\OneDrive\\Desktop\\Projects\\WallpaperGen\\WallpaperGen\\WallpaperGen\\WallpaperGen.csproj",
+      "projectUniqueName": "C:\\Users\\rmbas\\Desktop\\Projects\\WallpaperGen\\WallpaperGen\\WallpaperGen\\WallpaperGen.csproj",
       "projectName": "WallpaperGen",
-      "projectPath": "C:\\Users\\rmbas\\OneDrive\\Desktop\\Projects\\WallpaperGen\\WallpaperGen\\WallpaperGen\\WallpaperGen.csproj",
+      "projectPath": "C:\\Users\\rmbas\\Desktop\\Projects\\WallpaperGen\\WallpaperGen\\WallpaperGen\\WallpaperGen.csproj",
       "packagesPath": "C:\\Users\\rmbas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rmbas\\OneDrive\\Desktop\\Projects\\WallpaperGen\\WallpaperGen\\WallpaperGen\\obj\\",
+      "outputPath": "C:\\Users\\rmbas\\Desktop\\Projects\\WallpaperGen\\WallpaperGen\\WallpaperGen\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\rmbas\\AppData\\Roaming\\NuGet\\NuGet.Config",

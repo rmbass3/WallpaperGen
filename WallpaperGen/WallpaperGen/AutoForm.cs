@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32.TaskScheduler;
 using System.IO;
+using Task = Microsoft.Win32.TaskScheduler.Task;
 
 namespace WallpaperGen
 {
@@ -40,7 +41,7 @@ namespace WallpaperGen
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            //AllocConsole();
+            removeTask();
 
             string paths = "";
             foreach (string path in PathArr)
@@ -60,6 +61,27 @@ namespace WallpaperGen
                 td.Actions.Add(new ExecAction(exePath, paths, null));
 
                 ts.RootFolder.RegisterTaskDefinition(@"WallpaperSwitcher", td);
+            }
+        }
+
+        private void removeButton_Click(object sender, EventArgs e)
+        {
+            removeTask();
+        }
+
+
+        private void removeTask()
+        {
+            using (TaskService ts = new TaskService())
+            {
+                TaskCollection tc = ts.RootFolder.GetTasks();
+                foreach (Task task in tc)
+                {
+                    if (task.Name == "WallpaperSwitcher")
+                    {
+                        ts.RootFolder.DeleteTask("WallpaperSwitcher");
+                    }
+                }
             }
         }
     }
