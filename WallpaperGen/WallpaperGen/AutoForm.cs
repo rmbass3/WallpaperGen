@@ -17,7 +17,7 @@ namespace WallpaperGen
     {
         [System.Runtime.InteropServices.DllImport("kernel32.dll")]
         private static extern bool AllocConsole();
-        private string[] PathArr;
+        private Scheduler scheduler = new Scheduler();
 
         public AutoForm()
         {
@@ -32,57 +32,25 @@ namespace WallpaperGen
 
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                 {
-                    PathArr = Directory.GetFiles(fbd.SelectedPath);
-
-                    selectLabel.Text = PathArr.Length.ToString() + " Wallpapers found.";
+                    string[] files = Directory.GetFiles(fbd.SelectedPath);
+                    foreach (string file in files)
+                    {
+                        scheduler.WallpaperList.Add(new Wallpaper(file));
+                    }
+                    selectLabel.Text = scheduler.WallpaperList.Count.ToString() + " Wallpapers found.";
                 }
             }
         }
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            removeTask();
-
-            string paths = "";
-            foreach (string path in PathArr)
-            {
-                paths = paths + path + " ";
-            }
-
-            using (TaskService ts = new TaskService())
-            {
-                TaskDefinition td = ts.NewTask();
-                td.RegistrationInfo.Description = "Changes wallpaper periodically";
-
-                td.Triggers.Add(new DailyTrigger { DaysInterval = 1 });
-
-                string exePath = Path.GetFullPath("../../../../../WallpaperSwitcher/WallpaperSwitcher/bin/Debug/net6.0-windows/WallpaperSwitcher.exe");
-
-                td.Actions.Add(new ExecAction(exePath, paths, null));
-
-                ts.RootFolder.RegisterTaskDefinition(@"WallpaperSwitcher", td);
-            }
+            scheduler.RemoveTask();
+            scheduler.ScheduleTask();
         }
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            removeTask();
-        }
-
-
-        private void removeTask()
-        {
-            using (TaskService ts = new TaskService())
-            {
-                TaskCollection tc = ts.RootFolder.GetTasks();
-                foreach (Task task in tc)
-                {
-                    if (task.Name == "WallpaperSwitcher")
-                    {
-                        ts.RootFolder.DeleteTask("WallpaperSwitcher");
-                    }
-                }
-            }
+            scheduler.RemoveTask();
         }
     }
 }
