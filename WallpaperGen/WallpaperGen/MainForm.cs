@@ -21,7 +21,6 @@ namespace WallpaperGen
     {
         [System.Runtime.InteropServices.DllImport("kernel32.dll")]
         private static extern bool AllocConsole();
-
         private const int MAX_WP = 10;
         private const string URL = "https://wallhaven.cc/api/v1/search";
         private string urlParameters = "?q=nature&categories=100&atleast=1920x1080&sorting=views";
