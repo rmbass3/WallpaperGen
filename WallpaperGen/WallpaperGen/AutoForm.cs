@@ -22,9 +22,28 @@ namespace WallpaperGen
         public AutoForm()
         {
             InitializeComponent();
+            homePanel.Dock = DockStyle.Fill;
         }
 
         private void selectButton_Click(object sender, EventArgs e)
+        {
+            addFolderWallpapers();
+            selectLabel.Text = scheduler.WallpaperList.Count.ToString() + " Wallpapers found.";
+        }
+
+        private void createButton_Click(object sender, EventArgs e)
+        {
+            scheduler.RemoveTask();
+            scheduler.ScheduleTask();
+        }
+
+        private void removeButton_Click(object sender, EventArgs e)
+        {
+            scheduler.RemoveTask();
+        }
+
+
+        private void addFolderWallpapers()
         {
             using (var fbd = new FolderBrowserDialog())
             {
@@ -37,20 +56,13 @@ namespace WallpaperGen
                     {
                         scheduler.WallpaperList.Add(new Wallpaper(file));
                     }
-                    selectLabel.Text = scheduler.WallpaperList.Count.ToString() + " Wallpapers found.";
                 }
             }
         }
 
-        private void createButton_Click(object sender, EventArgs e)
+        private void homeNextButton_Click(object sender, EventArgs e)
         {
-            scheduler.RemoveTask();
-            scheduler.ScheduleTask();
-        }
-
-        private void removeButton_Click(object sender, EventArgs e)
-        {
-            scheduler.RemoveTask();
+            homePanel.Hide();
         }
     }
 }
