@@ -32,40 +32,33 @@ namespace WallpaperGen
             schedulePanel.Hide();
         }
 
-        private void selectButton_Click(object sender, EventArgs e)
-        {
-            addFolderWallpapers();
-            selectLabel.Text = scheduler.WallpaperList.Count.ToString() + " Wallpapers found.";
-        }
-
-        private void createButton_Click(object sender, EventArgs e)
-        {
-            scheduler.RemoveTask();
-            scheduler.ScheduleTask();
-        }
+        // Home Panel
 
         private void removeButton_Click(object sender, EventArgs e)
         {
             scheduler.RemoveTask();
         }
 
+        // Folder Panel
 
-        private void addFolderWallpapers()
+        private void selectFolderButton_Click(object sender, EventArgs e)
         {
-            using (var fbd = new FolderBrowserDialog())
+            addFolderWallpapers();
+            int count = scheduler.WallpaperList.Count;
+            selectLabel.Text = count.ToString() + " Wallpapers found.";
+            if (count > 0)
             {
-                DialogResult result = fbd.ShowDialog();
-
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-                {
-                    string[] files = Directory.GetFiles(fbd.SelectedPath);
-                    foreach (string file in files)
-                    {
-                        scheduler.WallpaperList.Add(new Wallpaper(file));
-                    }
-                }
+                folderNextButton.Enabled = true;
+            } else
+            {
+                folderNextButton.Enabled = false;
             }
         }
+
+        // Schedule Panel
+
+
+        // Radios
 
         private void folderRadio_CheckedChanged(object sender, EventArgs e)
         {
@@ -76,6 +69,18 @@ namespace WallpaperGen
         {
             homeNextButton.Enabled = true;
         }
+
+        private void dailyRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            scheduleNextButton.Enabled = true;
+        }
+
+        private void computerStartRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            scheduleNextButton.Enabled = true;
+        }
+
+        // Next and Back Buttons
 
         private void homeNextButton_Click(object sender, EventArgs e)
         {
@@ -108,5 +113,25 @@ namespace WallpaperGen
         {
            
         }
+
+        // Functions
+        private void addFolderWallpapers()
+        {
+            using (var fbd = new FolderBrowserDialog())
+            {
+                DialogResult result = fbd.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    string[] files = Directory.GetFiles(fbd.SelectedPath);
+                    foreach (string file in files)
+                    {
+                        scheduler.WallpaperList.Add(new Wallpaper(file));
+                    }
+                }
+            }
+        }
+
+
     }
 }
