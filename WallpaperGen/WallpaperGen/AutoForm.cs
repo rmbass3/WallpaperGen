@@ -22,9 +22,14 @@ namespace WallpaperGen
         public AutoForm()
         {
             InitializeComponent();
-            folderPanel.Hide();
+            
             homePanel.Dock = DockStyle.Fill;
+            folderPanel.Dock = DockStyle.Fill;
+            schedulePanel.Dock = DockStyle.Fill;
+
             homePanel.Show();
+            folderPanel.Hide();
+            schedulePanel.Hide();
         }
 
         private void selectButton_Click(object sender, EventArgs e)
@@ -62,13 +67,22 @@ namespace WallpaperGen
             }
         }
 
+        private void folderRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            homeNextButton.Enabled = true;
+        }
+
+        private void generateRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            homeNextButton.Enabled = true;
+        }
+
         private void homeNextButton_Click(object sender, EventArgs e)
         {
             if (folderRadio.Checked)
             {
                 homePanel.Hide();
                 folderPanel.Show();
-                folderPanel.Dock = DockStyle.Fill;
             }
         }
 
@@ -80,17 +94,19 @@ namespace WallpaperGen
 
         private void folderNextButton_Click(object sender, EventArgs e)
         {
-
+            folderPanel.Hide();
+            schedulePanel.Show();
         }
 
-        private void folderRadio_CheckedChanged(object sender, EventArgs e)
+        private void scheduleBackButton_Click(object sender, EventArgs e)
         {
-            homeNextButton.Enabled = true;
+            schedulePanel.Hide();
+            folderPanel.Show();
         }
 
-        private void generateRadio_CheckedChanged(object sender, EventArgs e)
+        private void scheduleNextButton_Click(object sender, EventArgs e)
         {
-            homeNextButton.Enabled = true;
+           
         }
     }
 }

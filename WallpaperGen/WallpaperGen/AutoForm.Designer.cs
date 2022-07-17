@@ -43,8 +43,15 @@
             this.folderBackButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.schedulePanel = new System.Windows.Forms.Panel();
+            this.scheduleNextButton = new System.Windows.Forms.Button();
+            this.scheduleBackButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.homePanel.SuspendLayout();
             this.folderPanel.SuspendLayout();
+            this.schedulePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // selectButton
@@ -97,10 +104,9 @@
             this.homePanel.Controls.Add(this.removeButton);
             this.homePanel.Controls.Add(this.folderRadio);
             this.homePanel.Controls.Add(this.homeTitleLabel);
-            this.homePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.homePanel.Location = new System.Drawing.Point(0, 0);
+            this.homePanel.Location = new System.Drawing.Point(35, 389);
             this.homePanel.Name = "homePanel";
-            this.homePanel.Size = new System.Drawing.Size(430, 450);
+            this.homePanel.Size = new System.Drawing.Size(49, 42);
             this.homePanel.TabIndex = 4;
             // 
             // homeNextButton
@@ -120,7 +126,7 @@
             this.creditLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.creditLabel.AutoSize = true;
             this.creditLabel.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.creditLabel.Location = new System.Drawing.Point(153, 71);
+            this.creditLabel.Location = new System.Drawing.Point(-38, 71);
             this.creditLabel.Name = "creditLabel";
             this.creditLabel.Size = new System.Drawing.Size(104, 17);
             this.creditLabel.TabIndex = 3;
@@ -157,7 +163,7 @@
             this.homeTitleLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.homeTitleLabel.AutoSize = true;
             this.homeTitleLabel.Font = new System.Drawing.Font("Consolas", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.homeTitleLabel.Location = new System.Drawing.Point(19, 28);
+            this.homeTitleLabel.Location = new System.Drawing.Point(-172, 28);
             this.homeTitleLabel.Name = "homeTitleLabel";
             this.homeTitleLabel.Size = new System.Drawing.Size(399, 43);
             this.homeTitleLabel.TabIndex = 0;
@@ -220,11 +226,79 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Wallpaper Generator";
             // 
+            // schedulePanel
+            // 
+            this.schedulePanel.Controls.Add(this.scheduleNextButton);
+            this.schedulePanel.Controls.Add(this.scheduleBackButton);
+            this.schedulePanel.Controls.Add(this.label3);
+            this.schedulePanel.Controls.Add(this.label4);
+            this.schedulePanel.Controls.Add(this.label5);
+            this.schedulePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.schedulePanel.Location = new System.Drawing.Point(0, 0);
+            this.schedulePanel.Name = "schedulePanel";
+            this.schedulePanel.Size = new System.Drawing.Size(430, 450);
+            this.schedulePanel.TabIndex = 6;
+            // 
+            // scheduleNextButton
+            // 
+            this.scheduleNextButton.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.scheduleNextButton.Location = new System.Drawing.Point(314, 415);
+            this.scheduleNextButton.Name = "scheduleNextButton";
+            this.scheduleNextButton.Size = new System.Drawing.Size(104, 23);
+            this.scheduleNextButton.TabIndex = 7;
+            this.scheduleNextButton.Text = "Next";
+            this.scheduleNextButton.UseVisualStyleBackColor = true;
+            this.scheduleNextButton.Click += new System.EventHandler(this.scheduleNextButton_Click);
+            // 
+            // scheduleBackButton
+            // 
+            this.scheduleBackButton.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.scheduleBackButton.Location = new System.Drawing.Point(12, 415);
+            this.scheduleBackButton.Name = "scheduleBackButton";
+            this.scheduleBackButton.Size = new System.Drawing.Size(104, 23);
+            this.scheduleBackButton.TabIndex = 6;
+            this.scheduleBackButton.Text = "Back";
+            this.scheduleBackButton.UseVisualStyleBackColor = true;
+            this.scheduleBackButton.Click += new System.EventHandler(this.scheduleBackButton_Click);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(158, 71);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(104, 17);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "2022 rmbass3";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Consolas", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(19, 28);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(399, 43);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Wallpaper Generator";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(111, 139);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(140, 14);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "No folder selected.";
+            // 
             // AutoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(430, 450);
+            this.Controls.Add(this.schedulePanel);
             this.Controls.Add(this.homePanel);
             this.Controls.Add(this.createButton);
             this.Controls.Add(this.folderPanel);
@@ -234,6 +308,8 @@
             this.homePanel.PerformLayout();
             this.folderPanel.ResumeLayout(false);
             this.folderPanel.PerformLayout();
+            this.schedulePanel.ResumeLayout(false);
+            this.schedulePanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -254,5 +330,11 @@
         private Label label2;
         private Button folderBackButton;
         private Button folderNextButton;
+        private Panel schedulePanel;
+        private Button scheduleNextButton;
+        private Button scheduleBackButton;
+        private Label label3;
+        private Label label4;
+        private Label label5;
     }
 }
