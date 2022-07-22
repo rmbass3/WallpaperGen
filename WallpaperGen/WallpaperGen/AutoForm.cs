@@ -117,13 +117,16 @@ namespace WallpaperGen
         // Functions
         private void addFolderWallpapers()
         {
+            AllocConsole();
             using (var fbd = new FolderBrowserDialog())
             {
                 DialogResult result = fbd.ShowDialog();
 
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                 {
-                    string[] files = Directory.GetFiles(fbd.SelectedPath);
+                    string[] pngFiles = Directory.GetFiles(fbd.SelectedPath, "*.png");
+                    string[] jpgFiles = Directory.GetFiles(fbd.SelectedPath, "*.jpg");
+                    var files = pngFiles.Concat(jpgFiles);
                     foreach (string file in files)
                     {
                         scheduler.WallpaperList.Add(new Wallpaper(file));
