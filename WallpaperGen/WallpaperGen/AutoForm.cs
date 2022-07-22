@@ -117,7 +117,6 @@ namespace WallpaperGen
         // Functions
         private void addFolderWallpapers()
         {
-            AllocConsole();
             using (var fbd = new FolderBrowserDialog())
             {
                 DialogResult result = fbd.ShowDialog();
